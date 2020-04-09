@@ -1,0 +1,4 @@
+include pdoc3_mdnotes/templates/*.mako
+include pdoc3_mdnotes/icons/*.png
+include requirements.txt
+include README.md

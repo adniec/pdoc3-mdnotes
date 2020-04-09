@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=pdoc3-mdnotes
+Icon=mdnotes
+Exec=mdnotes-gui
+Categories=Utility;
