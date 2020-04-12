@@ -1,11 +1,29 @@
+"""#### Main
+
+Contains `main` function which creates argument parser. According to set flags
+runs program in proper way, e.g. as GUI application or script with passed
+settings. It uses: `argparse`, `importlib` and `pathlib`.
+
+
+#### License
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
 import argparse
 import importlib
 from pathlib import Path
 
-from pdoc3_mdnotes import gui, mdnotes
+from pdoc3_mdnotes import mdnotes
 
 
 class TemplatesError(Exception):
+    """Defines custom exception returning information about expected files."""
     def __str__(self):
         return ('Templates directory needs to exist and contain files: '
                 '"config.mako", "credits.mako", "css.mako", '
@@ -13,6 +31,7 @@ class TemplatesError(Exception):
 
 
 def create_parser():
+    """Creates parser and returns its arguments."""
     parser = argparse.ArgumentParser(
         description=('Make notes from ".md" files. More information under: '
                      'https://ethru.github.io/pdoc3-mdnotes/'))
@@ -23,8 +42,8 @@ def create_parser():
     )
     parser.add_argument(
         '-n', '--name',
-        help=('name of directory created in set path where documentation will '
-              'be saved, default is: docs'),
+        help=('name of directory where html notes will be saved, default is: '
+              'docs'),
         action='store',
         default='docs'
     )
@@ -37,7 +56,7 @@ def create_parser():
     )
     parser.add_argument(
         '-t', '--templates',
-        help=('path to directory with templates, when not specifed directory '
+        help=('path to directory with templates, when not specified directory '
               '"templates" in path where program is run will be used if it '
               'exists else default templates are processed'),
         action='store')
@@ -45,12 +64,25 @@ def create_parser():
 
 
 def check_templates(path):
+    """Checks if path is correct and contains templates.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        path to templates provided by user
+
+    Raises
+    ------
+    TemplatesError
+        if set directory does not exist or contain necessary files
+    """
     if mdnotes.Notes.has_templates(path):
         return
     raise TemplatesError
 
 
 def main():
+    """Creates argument parser and processes its values to run program."""
     args = create_parser()
 
     if args.gui:
