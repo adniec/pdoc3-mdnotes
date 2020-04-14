@@ -23,15 +23,17 @@ from pdoc3_mdnotes import mdnotes
 
 
 class TemplatesError(Exception):
-    """Defines custom exception returning information about expected files."""
+    """Exception returning information about expected templates files."""
+
     def __str__(self):
-        return ('Templates directory needs to exist and contain files: '
-                '"config.mako", "credits.mako", "css.mako", '
-                '"head.mako", "html.mako" and "logo.mako"')
+        """Return exception message."""
+        templates = ('config', 'credits', 'css', 'head', 'html', 'logo')
+        all = ', '.join([f'"{n}.mako"' for n in templates])
+        return (f'Templates directory needs to exist and contain files: {all}')
 
 
 def create_parser():
-    """Creates parser and returns its arguments."""
+    """Create parser then return its arguments."""
     parser = argparse.ArgumentParser(
         description=('Make notes from ".md" files. More information under: '
                      'https://ethru.github.io/pdoc3-mdnotes/'))
@@ -43,7 +45,8 @@ def create_parser():
     parser.add_argument(
         '-n', '--name',
         help=('name of directory where html notes will be saved, default is: '
-              'docs'),
+              '"docs". Path can be used as well. Relative will navigate from '
+              'project directory (specified by `-p`, `--path`)'),
         action='store',
         default='docs'
     )
@@ -64,7 +67,7 @@ def create_parser():
 
 
 def check_templates(path):
-    """Checks if path is correct and contains templates.
+    """Check if path is correct and contain templates.
 
     Parameters
     ----------
@@ -82,7 +85,7 @@ def check_templates(path):
 
 
 def main():
-    """Creates argument parser and processes its values to run program."""
+    """Create argument parser and process its values to run program."""
     args = create_parser()
 
     if args.gui:

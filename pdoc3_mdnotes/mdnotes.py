@@ -36,78 +36,71 @@ ACCESS_ERRORS = (AttributeError, FileNotFoundError,
 
 
 def load(path: Path) -> str:
-    """Loads and returns file content from set path."""
-    with open(path, 'r') as data:
+    """Return file content from set path."""
+    with open(path, "r") as data:
         return data.read()
 
 
 def save(path: Path, content: str):
-    """Saves passed content to file stored in set path."""
-    with open(path, 'w') as data:
+    """Save passed content to file located in set path."""
+    with open(path, "w") as data:
         data.write(content)
 
 
 class Converter:
     """
-    Class responsible for `.md` files conversion to `.py` preserving original
-    directory structure.
+    Class responsible for `.md` files conversion to `.py`.
+
+    It preserves original directory structure.
 
     ...
 
     Attributes
     ----------
-    files_paths : list
-        containing paths to collected files from `self.path`
-    directories_paths : list
-        containing paths to collected directories from `self.path`
     path : pathlib.Path
-        path to directory containing `.md` files to convert
-    destination : pathlib.Path
-        path to directory where converted files fill be saved
+        project path leading to directory containing `.md` files to convert
+    files : list
+        containing paths to collected files
+    directories : list
+        containing paths to collected directories
     """
-    def __init__(self, path, destination):
-        self.files_paths = []
-        self.directories_paths = []
+
+    def __init__(self, path):
+        """Collect `.md` files and directories paths from set location."""
         self.path = path
-        self.destination = destination
+        self.files = []
+        self.directories = []
+        self.collect(path)
 
-    def process(self):
-        """Goes through all steps needed to make conversion.
+    def convert(self, directory):
+        """Convert all collected files from `.md` to `.py`.
 
-        First it collects files and folders from `self.path`. Then creates new
-        directory structure in `self.destination`. Finally places there
-        converted files.
+        If file name is `README.md` change it to `__init__.py`. Each file is
+        saved to passed location preserving its relative path to project
+        directory.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory where converted files will be stored
         """
-        self.collect(self.path)
-        self.create_structure()
-        self.convert()
-
-    def convert(self):
-        """Converts all collected files from `.md` to `.py`.
-
-        If file name is `README.md` changes it to `__init__.py`. Each file is
-        saved to `self.destination` preserving its relative path to project
-        directory - `self.path`.
-        """
-        for path in self.files_paths:
-            if path.suffix == '.md':
-                if path.stem.upper() == 'README':
-                    name = '__init__.py'
+        self.create_structure(directory)
+        for path in self.files:
+            if path.suffix == ".md":
+                if path.stem.upper() == "README":
+                    name = "__init__.py"
                 else:
-                    name = path.stem + '.py'
+                    name = path.stem + ".py"
                 data = '"""\n' + load(path) + '\n"""'
-                path = (self.destination /
-                        self.get_relative_path(path.parent) /
-                        name)
-                save(path, data)
+                path = directory / path.relative_to(self.path.parent).parent
+                save(path / name, data)
 
     def collect(self, directory):
-        """Collects all files from set directory.
+        """Collect all files from set directory.
 
-        Iterates through files in set directory and places them in
-        `self.directories_paths` or `self.files_paths`. When folder is met
-        calls self again with that path. In case of `PermissionError` skips
-        that location.
+        Iterate through files in set directory and place them in
+        `self.directories` or `self.files`. When folder is met call self again
+        with that path. In case of `PermissionError` skip that location.
 
         Parameters
         ----------
@@ -117,46 +110,38 @@ class Converter:
         for path in directory.iterdir():
             try:
                 if path.is_dir():
-                    self.directories_paths.append(path)
+                    self.directories.append(path)
                     self.collect(path)
                 else:
-                    if path.suffix == '.md':
-                        self.files_paths.append(path)
+                    if path.suffix == ".md":
+                        self.files.append(path)
             except PermissionError:
                 pass
 
-    def create_structure(self):
-        """Reproduces project directory structure in `self.destination`."""
-        for path in self.directories_paths:
-            self.create_directory(path)
+    def create_structure(self, directory):
+        """Reproduce project directory structure in set location.
 
-    def create_directory(self, path):
-        """Reproduces directory from set path in `self.destination`
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory where converted files will be stored
+        """
+        self.create_directory(self.path, directory)
+        for path in self.directories:
+            self.create_directory(path, directory)
+
+    def create_directory(self, path, destination):
+        """Reproduce directory from set path in destination.
 
         Parameters
         ----------
         path : pathlib.Path
-            directory which will be reproduced in `self.destination`
+            directory which will be reproduced
+        destination : pathlib.Path
+            location where to reproduce directory
         """
-        path = self.destination / self.get_relative_path(path)
+        path = destination / path.relative_to(self.path.parent)
         path.mkdir(parents=True, exist_ok=True)
-
-    def get_relative_path(self, path):
-        """Removes base `self.path` from passed path to file or directory.
-
-        Parameters
-        ----------
-        path : pathlib.Path
-            path to file or directory from which relative path is needed
-
-        Returns
-        -------
-        str
-            string containing relative path
-        """
-        parts = path.parts
-        relative_parts = parts[parts.index(self.path.name):]
-        return '/'.join(relative_parts)
 
 
 class Notes:
@@ -174,8 +159,10 @@ class Notes:
     module : pdoc.Module
         `pdoc` object representing module from which notes will be generated
     """
-    def __init__(self, path, destination, name='docs', templates=None):
-        """
+
+    def __init__(self, path, destination, name="docs", templates=None):
+        """Set notes templates. Initialize `pdoc` linker.
+
         Parameters
         ----------
         path : pathlib.Path
@@ -190,19 +177,19 @@ class Notes:
 
         context = pdoc.Context()
         source = str(path / destination.name)
-        self.modules = pdoc.Module(source, context=context)
+        self.module = pdoc.Module(source, context=context)
         pdoc.link_inheritance(context)
 
     def generate(self):
-        """Creates `html` notes in `self.destination`/`self.name` directory."""
-        for path, content in self.get(self.modules):
-            relative = '/'.join(Path(path).parts[1:])
+        """Create `html` notes in `self.destination`/`self.name` directory."""
+        for path, content in self.get(self.module):
+            relative = "/".join(Path(path).parts[1:])
             path = self.destination / self.name / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             save(path, content)
 
     def get(self, module):
-        """Obtains `url` and `html` content from set module and its submodules.
+        """Obtain `url` and `html` content from set module and its submodules.
 
         Paramters
         ---------
@@ -220,28 +207,28 @@ class Notes:
             yield from self.get(submodule)
 
     def set_templates(self, directory):
-        """Sets `pdoc` templates according to available options.
+        """Set `pdoc` templates according to available options.
 
-         When passed path contains templates then they are used. If not folder
-         `templates` in `self.destination` is checked. If still nothing is
-         found templates from installation directory are taken. If it could not
-         find them anywhere it does not modify anything - templates provided
-         with `pdoc` are used.
+        When passed path contains templates then they are used. If not folder
+        `templates` in `self.destination` is checked. If still nothing is
+        found templates from installation directory are taken. If it could not
+        find them anywhere it does not modify anything - templates provided
+        with `pdoc` are used.
 
-         Parameters
-         ----------
-         directory : pathlib.Path or None
-             path to directory containing templates, `None` when not specified
-         """
-        destination = self.destination / 'templates'
-        module_dir = getattr(sys, '_MEIPASS', Path(__file__).parent.absolute())
-        module = Path(module_dir) / 'templates'
+        Parameters
+        ----------
+        directory : pathlib.Path or None
+            path to directory containing templates, `None` when not specified
+        """
+        destination = self.destination / "templates"
+        module_dir = getattr(sys, "_MEIPASS", Path(__file__).parent.absolute())
+        module = Path(module_dir) / "templates"
         for path in (directory, destination, module):
             if self.change_templates(path):
                 break
 
     def change_templates(self, path):
-        """Changes `pdoc` templates if set `path` contains all necessary files.
+        """Change `pdoc` templates if set `path` contains all necessary files.
 
         Parameters
         ----------
@@ -260,7 +247,7 @@ class Notes:
 
     @staticmethod
     def has_templates(directory):
-        """Checks if templates files are stored in set `directory`
+        """Check if templates files are stored in set `directory`.
 
         Parameters
         ----------
@@ -272,20 +259,20 @@ class Notes:
         bool
             information if folder contains templates or not
         """
-        templates = ('config', 'credits', 'css', 'head', 'html', 'logo')
+        templates = ("config", "credits", "css", "head", "html", "logo")
         try:
             files = set(path.name for path in directory.iterdir())
-            expected = set(f'{name}.mako' for name in templates)
+            expected = set(f"{name}.mako" for name in templates)
             return not expected - files
         except ACCESS_ERRORS:
             return False
 
 
-def main(path, *args):
-    """Generates notes in `html` format.
+def main(path, *args, **kwargs):
+    """Generate notes in `html` format.
 
-    Creates `tempfile.TemporaryDirectory`. Then converts `.md` files from set
-    path to `.py` and stores them in that directory. Finally generates `html`
+    Create `tempfile.TemporaryDirectory`. Then convert `.md` files from set
+    path to `.py` and store them in that directory. Finally generate `html`
     notes from those files.
 
     Parameters
@@ -296,11 +283,12 @@ def main(path, *args):
         optional arguments passed to `Notes` class
     """
     with TemporaryDirectory() as temp_dir:
-        converter = Converter(path, Path(temp_dir))
-        converter.process()
-        notes = Notes(converter.destination, path, *args)
+        temp = Path(temp_dir)
+        converter = Converter(path)
+        converter.convert(temp)
+        notes = Notes(temp, path, *args, **kwargs)
         notes.generate()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main(Path().absolute())

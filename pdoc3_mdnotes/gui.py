@@ -4,8 +4,8 @@ Module gathers classes and methods necessary to create GUI. Its divided for two
 blocks `Directory` and `Buttons` both extending `tkinter.Frame`. `Directory`
 holds label, path entry and browse button. In `Buttons` frame there are bottom
 buttons with their functions. `Gui` connects each part and places them in main
-window which will be displayed. Modules used: `pathlib`, `sys` and `tkinter`
-with `filedialog`, `messagebox`.
+window which will be displayed. Modules used: `pathlib`, `sys`, `tkinter` with
+`filedialog`, `messagebox` and `webbrowser`.
 
 
 #### License
@@ -23,14 +23,14 @@ import sys
 import tkinter as tk
 from tkinter.filedialog import askdirectory
 import tkinter.messagebox as msg
+import webbrowser
 
 from pdoc3_mdnotes import mdnotes
 
 
 class Gui(tk.Tk):
     """
-    Configures GUI. Places individual widgets and allows their communication.
-    Extends `tk.Tk`.
+    Place individual widgets and allow their communication. It extends `tk.Tk`.
 
     ...
 
@@ -41,7 +41,8 @@ class Gui(tk.Tk):
     """
 
     def __init__(self, title, size):
-        """
+        """Create applications GUI.
+
         Parameters
         ----------
         title : str
@@ -66,7 +67,7 @@ class Gui(tk.Tk):
 
     @staticmethod
     def get_image(name):
-        """Gets image path.
+        """Return image path.
 
         According to type of installation picks method to get image path. It
         can by obtained from module directory or from `_MEIPASS` when
@@ -75,7 +76,7 @@ class Gui(tk.Tk):
         Parameters
         ----------
         name : str
-            name of image with extension to get
+            image name with extension
 
         Returns
         -------
@@ -88,7 +89,7 @@ class Gui(tk.Tk):
 
 class Directory(tk.Frame):
     """
-    Creates directory widget. Extends `tk.Frame`.
+    Create directory widget. It extends `tk.Frame`.
 
     ...
 
@@ -104,7 +105,8 @@ class Directory(tk.Frame):
     """
 
     def __init__(self, menu):
-        """
+        """Place directory widget elements.
+
         Parameters
         ----------
         menu : Gui
@@ -114,10 +116,7 @@ class Directory(tk.Frame):
         self.home = Path.home()
         self.icon = tk.PhotoImage(file=menu.get_image('browse.png'))
         self.variable = tk.StringVar(self, value=self.home)
-        self.display()
 
-    def display(self):
-        """Creates frame elements: label, entry and button."""
         tk.Label(self, text='Path: ', font='none 10').grid(row=0, column=0)
         tk.Entry(self,
                  textvariable=self.variable,
@@ -128,7 +127,7 @@ class Directory(tk.Frame):
                   command=self.browse).grid(row=0, column=2)
 
     def browse(self):
-        """Uses `tkinter.askdirectory` to pick directory.
+        """Use `tkinter.askdirectory` to pick directory.
 
         Initial directory is set to `self.home`. When user picks new one
         `self.variable` is updated.
@@ -138,7 +137,7 @@ class Directory(tk.Frame):
 
 class Buttons(tk.Frame):
     """
-    Creates buttons widget. Extends `tk.Frame`.
+    Create buttons widget. It extends `tk.Frame`.
 
     ...
 
@@ -149,21 +148,22 @@ class Buttons(tk.Frame):
     """
 
     def __init__(self, menu):
-        """
+        """Place buttons widget elements.
+
         Parameters
         ----------
         menu : Gui
             container where `Buttons` widget will be bound
         """
         super().__init__(menu)
-        tk.Button(self, text='Create', width=7,
+        tk.Button(self, text='Submit', width=7,
                   command=self.create_notes).grid(row=0, column=0)
-        tk.Button(self, text='Exit', width=7,
-                  command=sys.exit).grid(row=0, column=1)
+        tk.Button(self, text='About', width=7,
+                  command=self.open_homepage).grid(row=0, column=1)
         self.get_path = menu.directory.variable.get
 
     def create_notes(self, *_):
-        """Makes `html` notes.
+        """Make `html` notes.
 
         If path from application entry is correct it creates `html` notes with
         `pdoc3_mdnotes.mdnotes.main` function. In case of error appropriate
@@ -181,12 +181,16 @@ class Buttons(tk.Frame):
             msg.showerror('Error',
                           ('Wrong path. It must be a directory with write '
                            'permission. Use absolute path only, e.g. Windows: '
-                           r'"C:\Desktop\Files", Linux: "/home/user/Files".')
-                          )
+                           r'"C:\Desktop\Files", Linux: "/home/user/Files".'))
+
+    @staticmethod
+    def open_homepage():
+        """Open project homepage in browser."""
+        webbrowser.open('https://ethru.github.io/pdoc3-mdnotes/', new=True)
 
 
 def main():
-    """Adjusts GUI width according to used platform then creates it."""
+    """Adjust GUI width according to used platform then create it."""
     width = '400' if sys.platform == 'win32' else '460'
     Gui('pdoc3-mdnotes', f'{width}x130').mainloop()
 
