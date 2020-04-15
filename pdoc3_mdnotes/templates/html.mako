@@ -19,23 +19,6 @@
 
 <%def name="ident(name)"><span class="ident">${name}</span></%def>
 
-<%def name="show_module_list(modules)">
-<h1>Python module list</h1>
-
-% if not modules:
-  <p>No modules found.</p>
-% else:
-  <dl id="http-server-module-list">
-  % for name, desc in modules:
-      <div class="flex">
-      <dt><a href="${link_prefix}${name}">${name}</a></dt>
-      <dd>${desc | glimpse, to_html}</dd>
-      </div>
-  % endfor
-  </dl>
-% endif
-</%def>
-
 <%def name="show_column_list(items)">
   <%
       two_column = len(items) >= 6 and all(len(i.name) < 20 for i in items)
@@ -77,7 +60,7 @@
     % if supermodule:
     <li><h3>Previous page:</h3>
       <ul>
-        <li><code>${link(supermodule)}</code></li>
+        <li><code>${link(supermodule, supermodule.name.split('.')[-1].title().replace('_', ' '))}</code></li>
       </ul>
     </li>
     % endif
@@ -86,7 +69,7 @@
     <li><h3>Next pages:</h3>
       <ul>
       % for m in submodules:
-        <li><code>${link(m)}</code></li>
+        <li><code>${link(m, m.name.split('.')[-1].title().replace('_', ' '))}</code></li>
       % endfor
       </ul>
     </li>
@@ -102,18 +85,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <meta name="generator" content="pdoc ${pdoc.__version__}" />
-
-<%
-    module_list = 'modules' in context.keys()  # Whether we're showing module list in server mode
-%>
-
-  % if module_list:
-    <title>Python module list</title>
-    <meta name="description" content="A list of documented Python modules." />
-  % else:
-    <title>${module.name} API documentation</title>
-    <meta name="description" content="${module.docstring | glimpse, trim, h}" />
-  % endif
 
   <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
   <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
@@ -141,16 +112,10 @@
 </head>
 <body>
 <main>
-  % if module_list:
-    <article id="content">
-      ${show_module_list(modules)}
-    </article>
-  % else:
-    <article id="content">
-      ${show_module(module)}
-    </article>
-    ${module_index(module)}
-  % endif
+  <article id="content">
+    ${show_module(module)}
+  </article>
+  ${module_index(module)}
 </main>
 
 <footer id="footer">
