@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>pdoc3_mdnotes.gui API documentation</title>
+<meta name="description" content="GUI …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pdoc3_mdnotes.gui</code></h1>
+</header>
+<section id="section-intro">
+<h4 id="gui">GUI</h4>
+<p>Module gathers classes and methods necessary to create GUI. Its divided for two
+blocks <a title="pdoc3_mdnotes.gui.Directory" href="#pdoc3_mdnotes.gui.Directory"><code>Directory</code></a> and <a title="pdoc3_mdnotes.gui.Buttons" href="#pdoc3_mdnotes.gui.Buttons"><code>Buttons</code></a> both extending <code>tkinter.Frame</code>. <a title="pdoc3_mdnotes.gui.Directory" href="#pdoc3_mdnotes.gui.Directory"><code>Directory</code></a>
+holds label, path entry and browse button. In <a title="pdoc3_mdnotes.gui.Buttons" href="#pdoc3_mdnotes.gui.Buttons"><code>Buttons</code></a> frame there are bottom
+buttons with their functions. <a title="pdoc3_mdnotes.gui.Gui" href="#pdoc3_mdnotes.gui.Gui"><code>Gui</code></a> connects each part and places them in main
+window which will be displayed. Modules used: <code>pathlib</code>, <code>sys</code>, <code>tkinter</code> with
+<code>filedialog</code>, <code>messagebox</code> and <code>webbrowser</code>.</p>
+<h4 id="license">License</h4>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L0-L198" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;#### GUI
+
+Module gathers classes and methods necessary to create GUI. Its divided for two
+blocks `Directory` and `Buttons` both extending `tkinter.Frame`. `Directory`
+holds label, path entry and browse button. In `Buttons` frame there are bottom
+buttons with their functions. `Gui` connects each part and places them in main
+window which will be displayed. Modules used: `pathlib`, `sys`, `tkinter` with
+`filedialog`, `messagebox` and `webbrowser`.
+
+
+#### License
+THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+&#34;&#34;&#34;
+
+from pathlib import Path
+import sys
+import tkinter as tk
+from tkinter.filedialog import askdirectory
+import tkinter.messagebox as msg
+import webbrowser
+
+from pdoc3_mdnotes import mdnotes
+
+
+class Gui(tk.Tk):
+    &#34;&#34;&#34;
+    Place individual widgets and allow their communication. It extends `tk.Tk`.
+
+    ...
+
+    Attributes
+    ----------
+    directory : Directory
+        used for communication with `Directory` widget
+    &#34;&#34;&#34;
+
+    def __init__(self, title, size):
+        &#34;&#34;&#34;Create applications GUI.
+
+        Parameters
+        ----------
+        title : str
+            name of application, displayed on top bar
+        size : str
+            application size in format &#39;heightxwidth&#39;
+        &#34;&#34;&#34;
+        super().__init__(className=title)
+        self.title(title)
+        self.geometry(size)
+        self.resizable(False, False)
+        self.iconphoto(False,
+                       tk.PhotoImage(file=self.get_image(&#39;mdnotes.png&#39;)))
+
+        self.directory = Directory(self)
+        self.directory.grid(row=0, column=0, padx=20, pady=25)
+        buttons = Buttons(self)
+        buttons.grid(row=1, column=0, padx=10, pady=15, sticky=&#39;SE&#39;)
+
+        self.bind(&#39;&lt;Return&gt;&#39;, buttons.create_notes)
+        self.bind(&#39;&lt;Escape&gt;&#39;, sys.exit)
+
+    @staticmethod
+    def get_image(name):
+        &#34;&#34;&#34;Return image path.
+
+        According to type of installation picks method to get image path. It
+        can by obtained from module directory or from `_MEIPASS` when
+        application is built.
+
+        Parameters
+        ----------
+        name : str
+            image name with extension
+
+        Returns
+        -------
+        pathlib.Path
+            image path
+        &#34;&#34;&#34;
+        directory = getattr(sys, &#39;_MEIPASS&#39;, Path(__file__).parent.absolute())
+        return Path(directory) / &#39;icons&#39; / name
+
+
+class Directory(tk.Frame):
+    &#34;&#34;&#34;
+    Create directory widget. It extends `tk.Frame`.
+
+    ...
+
+    Attributes
+    ----------
+    home : pathlib.Path
+        home directory path displayed in entry on application startup, set as
+        initial directory for browse button
+    icon : tk.PhotoImage
+        object containing icon used with browse button
+    variable : tk.StringVar
+        stores value for path used in application, displayed in entry
+    &#34;&#34;&#34;
+
+    def __init__(self, menu):
+        &#34;&#34;&#34;Place directory widget elements.
+
+        Parameters
+        ----------
+        menu : Gui
+            container where `Directory` widget will be bound
+        &#34;&#34;&#34;
+        super().__init__(menu)
+        self.home = Path.home()
+        self.icon = tk.PhotoImage(file=menu.get_image(&#39;browse.png&#39;))
+        self.variable = tk.StringVar(self, value=self.home)
+
+        tk.Label(self, text=&#39;Path: &#39;, font=&#39;none 10&#39;).grid(row=0, column=0)
+        tk.Entry(self,
+                 textvariable=self.variable,
+                 width=42).grid(row=0, column=1, padx=5)
+        tk.Button(self, text=&#39;Browse&#39;,
+                  width=20, height=20,
+                  image=self.icon,
+                  command=self.browse).grid(row=0, column=2)
+
+    def browse(self):
+        &#34;&#34;&#34;Use `tkinter.askdirectory` to pick directory.
+
+        Initial directory is set to `self.home`. When user picks new one
+        `self.variable` is updated.
+        &#34;&#34;&#34;
+        self.variable.set(askdirectory(initialdir=self.home))
+
+
+class Buttons(tk.Frame):
+    &#34;&#34;&#34;
+    Create buttons widget. It extends `tk.Frame`.
+
+    ...
+
+    Methods
+    -------
+    get_path
+        method bound to get path from application entry
+    &#34;&#34;&#34;
+
+    def __init__(self, menu):
+        &#34;&#34;&#34;Place buttons widget elements.
+
+        Parameters
+        ----------
+        menu : Gui
+            container where `Buttons` widget will be bound
+        &#34;&#34;&#34;
+        super().__init__(menu)
+        tk.Button(self, text=&#39;Submit&#39;, width=7,
+                  command=self.create_notes).grid(row=0, column=0)
+        tk.Button(self, text=&#39;About&#39;, width=7,
+                  command=self.open_homepage).grid(row=0, column=1)
+        self.get_path = menu.directory.variable.get
+
+    def create_notes(self, *_):
+        &#34;&#34;&#34;Make `html` notes.
+
+        If path from application entry is correct it creates `html` notes with
+        `pdoc3_mdnotes.mdnotes.main` function. In case of error appropriate
+        notification is displayed.
+        &#34;&#34;&#34;
+        try:
+            path = Path(self.get_path())
+            if not path.is_absolute():
+                raise AttributeError
+            mdnotes.main(path)
+            msg.showinfo(&#39;Success&#39;,
+                         &#39;Notes created in set directory. Exiting...&#39;)
+            sys.exit()
+        except mdnotes.ACCESS_ERRORS:
+            msg.showerror(&#39;Error&#39;,
+                          (&#39;Wrong path. It must be a directory with write &#39;
+                           &#39;permission. Use absolute path only, e.g. Windows: &#39;
+                           r&#39;&#34;C:\Desktop\Files&#34;, Linux: &#34;/home/user/Files&#34;.&#39;))
+
+    @staticmethod
+    def open_homepage():
+        &#34;&#34;&#34;Open project homepage in browser.&#34;&#34;&#34;
+        webbrowser.open(&#39;https://ethru.github.io/pdoc3-mdnotes/&#39;, new=True)
+
+
+def main():
+    &#34;&#34;&#34;Adjust GUI width according to used platform then create it.&#34;&#34;&#34;
+    width = &#39;400&#39; if sys.platform == &#39;win32&#39; else &#39;460&#39;
+    Gui(&#39;pdoc3-mdnotes&#39;, f&#39;{width}x130&#39;).mainloop()
+
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pdoc3_mdnotes.gui.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Adjust GUI width according to used platform then create it.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L192-L195" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;Adjust GUI width according to used platform then create it.&#34;&#34;&#34;
+    width = &#39;400&#39; if sys.platform == &#39;win32&#39; else &#39;460&#39;
+    Gui(&#39;pdoc3-mdnotes&#39;, f&#39;{width}x130&#39;).mainloop()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pdoc3_mdnotes.gui.Buttons"><code class="flex name class">
+<span>class <span class="ident">Buttons</span></span>
+<span>(</span><span>menu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Create buttons widget. It extends <code>tk.Frame</code>.</p>
+<p>&hellip;</p>
+<h2 id="methods">Methods</h2>
+<dl>
+<dt><strong><code>get_path</code></strong></dt>
+<dd>method bound to get path from application entry</dd>
+</dl>
+<p>Place buttons widget elements.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>menu</code></strong> :&ensp;<a title="pdoc3_mdnotes.gui.Gui" href="#pdoc3_mdnotes.gui.Gui"><code>Gui</code></a></dt>
+<dd>container where <a title="pdoc3_mdnotes.gui.Buttons" href="#pdoc3_mdnotes.gui.Buttons"><code>Buttons</code></a> widget will be bound</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L138-L189" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">class Buttons(tk.Frame):
+    &#34;&#34;&#34;
+    Create buttons widget. It extends `tk.Frame`.
+
+    ...
+
+    Methods
+    -------
+    get_path
+        method bound to get path from application entry
+    &#34;&#34;&#34;
+
+    def __init__(self, menu):
+        &#34;&#34;&#34;Place buttons widget elements.
+
+        Parameters
+        ----------
+        menu : Gui
+            container where `Buttons` widget will be bound
+        &#34;&#34;&#34;
+        super().__init__(menu)
+        tk.Button(self, text=&#39;Submit&#39;, width=7,
+                  command=self.create_notes).grid(row=0, column=0)
+        tk.Button(self, text=&#39;About&#39;, width=7,
+                  command=self.open_homepage).grid(row=0, column=1)
+        self.get_path = menu.directory.variable.get
+
+    def create_notes(self, *_):
+        &#34;&#34;&#34;Make `html` notes.
+
+        If path from application entry is correct it creates `html` notes with
+        `pdoc3_mdnotes.mdnotes.main` function. In case of error appropriate
+        notification is displayed.
+        &#34;&#34;&#34;
+        try:
+            path = Path(self.get_path())
+            if not path.is_absolute():
+                raise AttributeError
+            mdnotes.main(path)
+            msg.showinfo(&#39;Success&#39;,
+                         &#39;Notes created in set directory. Exiting...&#39;)
+            sys.exit()
+        except mdnotes.ACCESS_ERRORS:
+            msg.showerror(&#39;Error&#39;,
+                          (&#39;Wrong path. It must be a directory with write &#39;
+                           &#39;permission. Use absolute path only, e.g. Windows: &#39;
+                           r&#39;&#34;C:\Desktop\Files&#34;, Linux: &#34;/home/user/Files&#34;.&#39;))
+
+    @staticmethod
+    def open_homepage():
+        &#34;&#34;&#34;Open project homepage in browser.&#34;&#34;&#34;
+        webbrowser.open(&#39;https://ethru.github.io/pdoc3-mdnotes/&#39;, new=True)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>tkinter.Frame</li>
+<li>tkinter.Widget</li>
+<li>tkinter.BaseWidget</li>
+<li>tkinter.Misc</li>
+<li>tkinter.Pack</li>
+<li>tkinter.Place</li>
+<li>tkinter.Grid</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="pdoc3_mdnotes.gui.Buttons.open_homepage"><code class="name flex">
+<span>def <span class="ident">open_homepage</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Open project homepage in browser.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L186-L189" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">@staticmethod
+def open_homepage():
+    &#34;&#34;&#34;Open project homepage in browser.&#34;&#34;&#34;
+    webbrowser.open(&#39;https://ethru.github.io/pdoc3-mdnotes/&#39;, new=True)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pdoc3_mdnotes.gui.Buttons.create_notes"><code class="name flex">
+<span>def <span class="ident">create_notes</span></span>(<span>self, *_)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Make <code>html</code> notes.</p>
+<p>If path from application entry is correct it creates <code>html</code> notes with
+<a title="pdoc3_mdnotes.mdnotes.main" href="mdnotes.html#pdoc3_mdnotes.mdnotes.main"><code>main()</code></a> function. In case of error appropriate
+notification is displayed.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L165-L184" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def create_notes(self, *_):
+    &#34;&#34;&#34;Make `html` notes.
+
+    If path from application entry is correct it creates `html` notes with
+    `pdoc3_mdnotes.mdnotes.main` function. In case of error appropriate
+    notification is displayed.
+    &#34;&#34;&#34;
+    try:
+        path = Path(self.get_path())
+        if not path.is_absolute():
+            raise AttributeError
+        mdnotes.main(path)
+        msg.showinfo(&#39;Success&#39;,
+                     &#39;Notes created in set directory. Exiting...&#39;)
+        sys.exit()
+    except mdnotes.ACCESS_ERRORS:
+        msg.showerror(&#39;Error&#39;,
+                      (&#39;Wrong path. It must be a directory with write &#39;
+                       &#39;permission. Use absolute path only, e.g. Windows: &#39;
+                       r&#39;&#34;C:\Desktop\Files&#34;, Linux: &#34;/home/user/Files&#34;.&#39;))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pdoc3_mdnotes.gui.Directory"><code class="flex name class">
+<span>class <span class="ident">Directory</span></span>
+<span>(</span><span>menu)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Create directory widget. It extends <code>tk.Frame</code>.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>home</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>home directory path displayed in entry on application startup, set as
+initial directory for browse button</dd>
+<dt><strong><code>icon</code></strong> :&ensp;<code>tk.PhotoImage</code></dt>
+<dd>object containing icon used with browse button</dd>
+<dt><strong><code>variable</code></strong> :&ensp;<code>tk.StringVar</code></dt>
+<dd>stores value for path used in application, displayed in entry</dd>
+</dl>
+<p>Place directory widget elements.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>menu</code></strong> :&ensp;<a title="pdoc3_mdnotes.gui.Gui" href="#pdoc3_mdnotes.gui.Gui"><code>Gui</code></a></dt>
+<dd>container where <a title="pdoc3_mdnotes.gui.Directory" href="#pdoc3_mdnotes.gui.Directory"><code>Directory</code></a> widget will be bound</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L90-L135" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">class Directory(tk.Frame):
+    &#34;&#34;&#34;
+    Create directory widget. It extends `tk.Frame`.
+
+    ...
+
+    Attributes
+    ----------
+    home : pathlib.Path
+        home directory path displayed in entry on application startup, set as
+        initial directory for browse button
+    icon : tk.PhotoImage
+        object containing icon used with browse button
+    variable : tk.StringVar
+        stores value for path used in application, displayed in entry
+    &#34;&#34;&#34;
+
+    def __init__(self, menu):
+        &#34;&#34;&#34;Place directory widget elements.
+
+        Parameters
+        ----------
+        menu : Gui
+            container where `Directory` widget will be bound
+        &#34;&#34;&#34;
+        super().__init__(menu)
+        self.home = Path.home()
+        self.icon = tk.PhotoImage(file=menu.get_image(&#39;browse.png&#39;))
+        self.variable = tk.StringVar(self, value=self.home)
+
+        tk.Label(self, text=&#39;Path: &#39;, font=&#39;none 10&#39;).grid(row=0, column=0)
+        tk.Entry(self,
+                 textvariable=self.variable,
+                 width=42).grid(row=0, column=1, padx=5)
+        tk.Button(self, text=&#39;Browse&#39;,
+                  width=20, height=20,
+                  image=self.icon,
+                  command=self.browse).grid(row=0, column=2)
+
+    def browse(self):
+        &#34;&#34;&#34;Use `tkinter.askdirectory` to pick directory.
+
+        Initial directory is set to `self.home`. When user picks new one
+        `self.variable` is updated.
+        &#34;&#34;&#34;
+        self.variable.set(askdirectory(initialdir=self.home))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>tkinter.Frame</li>
+<li>tkinter.Widget</li>
+<li>tkinter.BaseWidget</li>
+<li>tkinter.Misc</li>
+<li>tkinter.Pack</li>
+<li>tkinter.Place</li>
+<li>tkinter.Grid</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="pdoc3_mdnotes.gui.Directory.browse"><code class="name flex">
+<span>def <span class="ident">browse</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Use <code>tkinter.askdirectory</code> to pick directory.</p>
+<p>Initial directory is set to <code>self.home</code>. When user picks new one
+<code>self.variable</code> is updated.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L129-L135" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def browse(self):
+    &#34;&#34;&#34;Use `tkinter.askdirectory` to pick directory.
+
+    Initial directory is set to `self.home`. When user picks new one
+    `self.variable` is updated.
+    &#34;&#34;&#34;
+    self.variable.set(askdirectory(initialdir=self.home))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pdoc3_mdnotes.gui.Gui"><code class="flex name class">
+<span>class <span class="ident">Gui</span></span>
+<span>(</span><span>title, size)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Place individual widgets and allow their communication. It extends <code>tk.Tk</code>.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<a title="pdoc3_mdnotes.gui.Directory" href="#pdoc3_mdnotes.gui.Directory"><code>Directory</code></a></dt>
+<dd>used for communication with <a title="pdoc3_mdnotes.gui.Directory" href="#pdoc3_mdnotes.gui.Directory"><code>Directory</code></a> widget</dd>
+</dl>
+<p>Create applications GUI.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>name of application, displayed on top bar</dd>
+<dt><strong><code>size</code></strong> :&ensp;<code>str</code></dt>
+<dd>application size in format 'heightxwidth'</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L31-L87" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">class Gui(tk.Tk):
+    &#34;&#34;&#34;
+    Place individual widgets and allow their communication. It extends `tk.Tk`.
+
+    ...
+
+    Attributes
+    ----------
+    directory : Directory
+        used for communication with `Directory` widget
+    &#34;&#34;&#34;
+
+    def __init__(self, title, size):
+        &#34;&#34;&#34;Create applications GUI.
+
+        Parameters
+        ----------
+        title : str
+            name of application, displayed on top bar
+        size : str
+            application size in format &#39;heightxwidth&#39;
+        &#34;&#34;&#34;
+        super().__init__(className=title)
+        self.title(title)
+        self.geometry(size)
+        self.resizable(False, False)
+        self.iconphoto(False,
+                       tk.PhotoImage(file=self.get_image(&#39;mdnotes.png&#39;)))
+
+        self.directory = Directory(self)
+        self.directory.grid(row=0, column=0, padx=20, pady=25)
+        buttons = Buttons(self)
+        buttons.grid(row=1, column=0, padx=10, pady=15, sticky=&#39;SE&#39;)
+
+        self.bind(&#39;&lt;Return&gt;&#39;, buttons.create_notes)
+        self.bind(&#39;&lt;Escape&gt;&#39;, sys.exit)
+
+    @staticmethod
+    def get_image(name):
+        &#34;&#34;&#34;Return image path.
+
+        According to type of installation picks method to get image path. It
+        can by obtained from module directory or from `_MEIPASS` when
+        application is built.
+
+        Parameters
+        ----------
+        name : str
+            image name with extension
+
+        Returns
+        -------
+        pathlib.Path
+            image path
+        &#34;&#34;&#34;
+        directory = getattr(sys, &#39;_MEIPASS&#39;, Path(__file__).parent.absolute())
+        return Path(directory) / &#39;icons&#39; / name</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>tkinter.Tk</li>
+<li>tkinter.Misc</li>
+<li>tkinter.Wm</li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="pdoc3_mdnotes.gui.Gui.get_image"><code class="name flex">
+<span>def <span class="ident">get_image</span></span>(<span>name)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Return image path.</p>
+<p>According to type of installation picks method to get image path. It
+can by obtained from module directory or from <code>_MEIPASS</code> when
+application is built.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>image name with extension</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>pathlib.Path</code></dt>
+<dd>image path</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/gui.py#L68-L87" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">@staticmethod
+def get_image(name):
+    &#34;&#34;&#34;Return image path.
+
+    According to type of installation picks method to get image path. It
+    can by obtained from module directory or from `_MEIPASS` when
+    application is built.
+
+    Parameters
+    ----------
+    name : str
+        image name with extension
+
+    Returns
+    -------
+    pathlib.Path
+        image path
+    &#34;&#34;&#34;
+    directory = getattr(sys, &#39;_MEIPASS&#39;, Path(__file__).parent.absolute())
+    return Path(directory) / &#39;icons&#39; / name</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<header><img src="https://raw.githubusercontent.com/ethru/pdoc3-mdnotes/develop/pdoc3_mdnotes/icons/mdnotes.png" alt=""></header>
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#gui">GUI</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pdoc3_mdnotes" href="index.html">pdoc3_mdnotes</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pdoc3_mdnotes.gui.main" href="#pdoc3_mdnotes.gui.main">main</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pdoc3_mdnotes.gui.Buttons" href="#pdoc3_mdnotes.gui.Buttons">Buttons</a></code></h4>
+<ul class="">
+<li><code><a title="pdoc3_mdnotes.gui.Buttons.create_notes" href="#pdoc3_mdnotes.gui.Buttons.create_notes">create_notes</a></code></li>
+<li><code><a title="pdoc3_mdnotes.gui.Buttons.open_homepage" href="#pdoc3_mdnotes.gui.Buttons.open_homepage">open_homepage</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pdoc3_mdnotes.gui.Directory" href="#pdoc3_mdnotes.gui.Directory">Directory</a></code></h4>
+<ul class="">
+<li><code><a title="pdoc3_mdnotes.gui.Directory.browse" href="#pdoc3_mdnotes.gui.Directory.browse">browse</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pdoc3_mdnotes.gui.Gui" href="#pdoc3_mdnotes.gui.Gui">Gui</a></code></h4>
+<ul class="">
+<li><code><a title="pdoc3_mdnotes.gui.Gui.get_image" href="#pdoc3_mdnotes.gui.Gui.get_image">get_image</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

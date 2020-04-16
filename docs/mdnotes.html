@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>pdoc3_mdnotes.mdnotes API documentation</title>
+<meta name="description" content="mdnotes …" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pdoc3_mdnotes.mdnotes</code></h1>
+</header>
+<section id="section-intro">
+<h4 id="mdnotes">mdnotes</h4>
+<p>Contains all necessary functions, classes and methods to use extension. It can
+be run as standalone script. Then <code>html</code> notes will be created from files
+placed in script directory ('templates' folder can be also added there for
+customization). <a title="pdoc3_mdnotes.mdnotes.main" href="#pdoc3_mdnotes.mdnotes.main"><code>main()</code></a> function creates <code>tempfile.TemporaryDirectory</code> and
+places there <code>.md</code> files content enclosed with docstring converted to <code>.py</code>.
+Directory structure is preserved. All <code>README.md</code> are renamed to <code>__init__.py</code>
+which helps build <code>index.html</code> page for each folder with notes. Modules used:
+<code>os</code>, <code>pathlib</code>, <code>sys</code>, <code>tempfile</code> and <code>pdoc</code>.</p>
+<h4 id="license">License</h4>
+<p>Code interacting with <a href="https://pdoc3.github.io/pdoc/">pdoc</a> is under <a href="https://raw.githubusercontent.com/pdoc3/pdoc/master/LICENSE.txt">GNU
+AGPL-3.0+</a>
+License. To the rest of program apply MIT License and below statement:</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L0-L293" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">#!/usr/bin/env python3
+&#34;&#34;&#34;#### mdnotes
+
+Contains all necessary functions, classes and methods to use extension. It can
+be run as standalone script. Then `html` notes will be created from files
+placed in script directory (&#39;templates&#39; folder can be also added there for
+customization). `main` function creates `tempfile.TemporaryDirectory` and
+places there `.md` files content enclosed with docstring converted to `.py`.
+Directory structure is preserved. All `README.md` are renamed to `__init__.py`
+which helps build `index.html` page for each folder with notes. Modules used:
+`os`, `pathlib`, `sys`, `tempfile` and `pdoc`.
+
+
+#### License
+Code interacting with [pdoc](https://pdoc3.github.io/pdoc/) is under [GNU
+AGPL-3.0+](https://raw.githubusercontent.com/pdoc3/pdoc/master/LICENSE.txt)
+License. To the rest of program apply MIT License and below statement:
+
+THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+&#34;&#34;&#34;
+
+from pathlib import Path
+import sys
+from tempfile import TemporaryDirectory
+
+import pdoc
+
+ACCESS_ERRORS = (AttributeError, FileNotFoundError,
+                 NotADirectoryError, PermissionError)
+
+
+def load(path: Path) -&gt; str:
+    &#34;&#34;&#34;Return file content from set path.&#34;&#34;&#34;
+    with open(path, &#34;r&#34;) as data:
+        return data.read()
+
+
+def save(path: Path, content: str):
+    &#34;&#34;&#34;Save passed content to file located in set path.&#34;&#34;&#34;
+    with open(path, &#34;w&#34;) as data:
+        data.write(content)
+
+
+class Converter:
+    &#34;&#34;&#34;
+    Class responsible for `.md` files conversion to `.py`.
+
+    It preserves original directory structure.
+
+    ...
+
+    Attributes
+    ----------
+    path : pathlib.Path
+        project path leading to directory containing `.md` files to convert
+    files : list
+        containing paths to collected files
+    directories : list
+        containing paths to collected directories
+    &#34;&#34;&#34;
+
+    def __init__(self, path):
+        &#34;&#34;&#34;Collect `.md` files and directories paths from set location.&#34;&#34;&#34;
+        self.path = path
+        self.files = []
+        self.directories = []
+        self.collect(path)
+
+    def convert(self, directory):
+        &#34;&#34;&#34;Convert all collected files from `.md` to `.py`.
+
+        If file name is `README.md` change it to `__init__.py`. Each file is
+        saved to passed location preserving its relative path to project
+        directory.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory where converted files will be stored
+        &#34;&#34;&#34;
+        self.create_structure(directory)
+        for path in self.files:
+            if path.suffix == &#34;.md&#34;:
+                if path.stem.upper() == &#34;README&#34;:
+                    name = &#34;__init__.py&#34;
+                else:
+                    name = path.stem + &#34;.py&#34;
+                data = &#39;&#34;&#34;&#34;\n&#39; + load(path) + &#39;\n&#34;&#34;&#34;&#39;
+                path = directory / path.relative_to(self.path.parent).parent
+                save(path / name, data)
+
+    def collect(self, directory):
+        &#34;&#34;&#34;Collect all files from set directory.
+
+        Iterate through files in set directory and place them in
+        `self.directories` or `self.files`. When folder is met call self again
+        with that path. In case of `PermissionError` skip that location.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            directory from which paths will be collected
+        &#34;&#34;&#34;
+        for path in directory.iterdir():
+            try:
+                if path.is_dir():
+                    self.directories.append(path)
+                    self.collect(path)
+                else:
+                    if path.suffix == &#34;.md&#34;:
+                        self.files.append(path)
+            except PermissionError:
+                pass
+
+    def create_structure(self, directory):
+        &#34;&#34;&#34;Reproduce project directory structure in set location.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory where converted files will be stored
+        &#34;&#34;&#34;
+        self.create_directory(self.path, directory)
+        for path in self.directories:
+            self.create_directory(path, directory)
+
+    def create_directory(self, path, destination):
+        &#34;&#34;&#34;Reproduce directory from set path in destination.
+
+        Parameters
+        ----------
+        path : pathlib.Path
+            directory which will be reproduced
+        destination : pathlib.Path
+            location where to reproduce directory
+        &#34;&#34;&#34;
+        path = destination / path.relative_to(self.path.parent)
+        path.mkdir(parents=True, exist_ok=True)
+
+
+class Notes:
+    &#34;&#34;&#34;
+    Class interacting with `pdoc` to create `html` notes.
+
+    ...
+
+    Attributes
+    ----------
+    destination : pathlib.Path
+        path to project directory where folder from `self.name` will be created
+    name : str, optional
+        name of directory where `html` files will be stored (default is &#34;docs&#34;)
+    module : pdoc.Module
+        `pdoc` object representing module from which notes will be generated
+    &#34;&#34;&#34;
+
+    def __init__(self, path, destination, name=&#34;docs&#34;, templates=None):
+        &#34;&#34;&#34;Set notes templates. Initialize `pdoc` linker.
+
+        Parameters
+        ----------
+        path : pathlib.Path
+            path to directory containing `.py` files with notes
+        templates : pathlib.Path or None, optional
+            path to directory containing customized templates which will be
+            used to create `html` notes (default is `None`)
+        &#34;&#34;&#34;
+        self.destination = destination
+        self.name = name
+        self.set_templates(templates)
+
+        context = pdoc.Context()
+        source = str(path / destination.name)
+        self.module = pdoc.Module(source, context=context)
+        pdoc.link_inheritance(context)
+
+    def generate(self):
+        &#34;&#34;&#34;Create `html` notes in `self.destination`/`self.name` directory.&#34;&#34;&#34;
+        for path, content in self.get(self.module):
+            relative = &#34;/&#34;.join(Path(path).parts[1:])
+            path = self.destination / self.name / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            save(path, content)
+
+    def get(self, module):
+        &#34;&#34;&#34;Obtain `url` and `html` content from set module and its submodules.
+
+        Paramters
+        ---------
+        module : pdoc.Module
+            object from which `url` and `html` content will be obtained, can
+            contain submodules
+
+        Yields
+        ------
+        tuple
+            containing module `url` and its `html` content
+        &#34;&#34;&#34;
+        yield module.url(), module.html()
+        for submodule in module.submodules():
+            yield from self.get(submodule)
+
+    def set_templates(self, directory):
+        &#34;&#34;&#34;Set `pdoc` templates according to available options.
+
+        When passed path contains templates then they are used. If not folder
+        `templates` in `self.destination` is checked. If still nothing is
+        found templates from installation directory are taken. If it could not
+        find them anywhere it does not modify anything - templates provided
+        with `pdoc` are used.
+
+        Parameters
+        ----------
+        directory : pathlib.Path or None
+            path to directory containing templates, `None` when not specified
+        &#34;&#34;&#34;
+        destination = self.destination / &#34;templates&#34;
+        module_dir = getattr(sys, &#34;_MEIPASS&#34;, Path(__file__).parent.absolute())
+        module = Path(module_dir) / &#34;templates&#34;
+        for path in (directory, destination, module):
+            if self.change_templates(path):
+                break
+
+    def change_templates(self, path):
+        &#34;&#34;&#34;Change `pdoc` templates if set `path` contains all necessary files.
+
+        Parameters
+        ----------
+        path : pathlib.Path or None
+            path to directory containing templates, `None` when not specified
+
+        Returns
+        -------
+        bool
+            information if templates were changed or not
+        &#34;&#34;&#34;
+        if self.has_templates(path):
+            pdoc.tpl_lookup.directories = [str(path)]
+            return True
+        return False
+
+    @staticmethod
+    def has_templates(directory):
+        &#34;&#34;&#34;Check if templates files are stored in set `directory`.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory which will be checked if templates are there
+
+        Returns
+        -------
+        bool
+            information if folder contains templates or not
+        &#34;&#34;&#34;
+        templates = (&#34;config&#34;, &#34;credits&#34;, &#34;css&#34;, &#34;head&#34;, &#34;html&#34;, &#34;logo&#34;)
+        try:
+            files = set(path.name for path in directory.iterdir())
+            expected = set(f&#34;{name}.mako&#34; for name in templates)
+            return not expected - files
+        except ACCESS_ERRORS:
+            return False
+
+
+def main(path, *args, **kwargs):
+    &#34;&#34;&#34;Generate notes in `html` format.
+
+    Create `tempfile.TemporaryDirectory`. Then convert `.md` files from set
+    path to `.py` and store them in that directory. Finally generate `html`
+    notes from those files.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        path to directory with notes
+    *args
+        optional arguments passed to `Notes` class
+    &#34;&#34;&#34;
+    with TemporaryDirectory() as temp_dir:
+        temp = Path(temp_dir)
+        converter = Converter(path)
+        converter.convert(temp)
+        notes = Notes(temp, path, *args, **kwargs)
+        notes.generate()
+
+
+if __name__ == &#34;__main__&#34;:
+    main(Path().absolute())</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pdoc3_mdnotes.mdnotes.load"><code class="name flex">
+<span>def <span class="ident">load</span></span>(<span>path)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Return file content from set path.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L38-L41" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def load(path: Path) -&gt; str:
+    &#34;&#34;&#34;Return file content from set path.&#34;&#34;&#34;
+    with open(path, &#34;r&#34;) as data:
+        return data.read()</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>path, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Generate notes in <code>html</code> format.</p>
+<p>Create <code>tempfile.TemporaryDirectory</code>. Then convert <code>.md</code> files from set
+path to <code>.py</code> and store them in that directory. Finally generate <code>html</code>
+notes from those files.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>path to directory with notes</dd>
+<dt><strong><code>*args</code></strong></dt>
+<dd>optional arguments passed to <a title="pdoc3_mdnotes.mdnotes.Notes" href="#pdoc3_mdnotes.mdnotes.Notes"><code>Notes</code></a> class</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L271-L290" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def main(path, *args, **kwargs):
+    &#34;&#34;&#34;Generate notes in `html` format.
+
+    Create `tempfile.TemporaryDirectory`. Then convert `.md` files from set
+    path to `.py` and store them in that directory. Finally generate `html`
+    notes from those files.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        path to directory with notes
+    *args
+        optional arguments passed to `Notes` class
+    &#34;&#34;&#34;
+    with TemporaryDirectory() as temp_dir:
+        temp = Path(temp_dir)
+        converter = Converter(path)
+        converter.convert(temp)
+        notes = Notes(temp, path, *args, **kwargs)
+        notes.generate()</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.save"><code class="name flex">
+<span>def <span class="ident">save</span></span>(<span>path, content)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Save passed content to file located in set path.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L44-L47" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def save(path: Path, content: str):
+    &#34;&#34;&#34;Save passed content to file located in set path.&#34;&#34;&#34;
+    with open(path, &#34;w&#34;) as data:
+        data.write(content)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pdoc3_mdnotes.mdnotes.Converter"><code class="flex name class">
+<span>class <span class="ident">Converter</span></span>
+<span>(</span><span>path)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Class responsible for <code>.md</code> files conversion to <code>.py</code>.</p>
+<p>It preserves original directory structure.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>project path leading to directory containing <code>.md</code> files to convert</dd>
+<dt><strong><code>files</code></strong> :&ensp;<code>list</code></dt>
+<dd>containing paths to collected files</dd>
+<dt><strong><code>directories</code></strong> :&ensp;<code>list</code></dt>
+<dd>containing paths to collected directories</dd>
+</dl>
+<p>Collect <code>.md</code> files and directories paths from set location.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L50-L144" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">class Converter:
+    &#34;&#34;&#34;
+    Class responsible for `.md` files conversion to `.py`.
+
+    It preserves original directory structure.
+
+    ...
+
+    Attributes
+    ----------
+    path : pathlib.Path
+        project path leading to directory containing `.md` files to convert
+    files : list
+        containing paths to collected files
+    directories : list
+        containing paths to collected directories
+    &#34;&#34;&#34;
+
+    def __init__(self, path):
+        &#34;&#34;&#34;Collect `.md` files and directories paths from set location.&#34;&#34;&#34;
+        self.path = path
+        self.files = []
+        self.directories = []
+        self.collect(path)
+
+    def convert(self, directory):
+        &#34;&#34;&#34;Convert all collected files from `.md` to `.py`.
+
+        If file name is `README.md` change it to `__init__.py`. Each file is
+        saved to passed location preserving its relative path to project
+        directory.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory where converted files will be stored
+        &#34;&#34;&#34;
+        self.create_structure(directory)
+        for path in self.files:
+            if path.suffix == &#34;.md&#34;:
+                if path.stem.upper() == &#34;README&#34;:
+                    name = &#34;__init__.py&#34;
+                else:
+                    name = path.stem + &#34;.py&#34;
+                data = &#39;&#34;&#34;&#34;\n&#39; + load(path) + &#39;\n&#34;&#34;&#34;&#39;
+                path = directory / path.relative_to(self.path.parent).parent
+                save(path / name, data)
+
+    def collect(self, directory):
+        &#34;&#34;&#34;Collect all files from set directory.
+
+        Iterate through files in set directory and place them in
+        `self.directories` or `self.files`. When folder is met call self again
+        with that path. In case of `PermissionError` skip that location.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            directory from which paths will be collected
+        &#34;&#34;&#34;
+        for path in directory.iterdir():
+            try:
+                if path.is_dir():
+                    self.directories.append(path)
+                    self.collect(path)
+                else:
+                    if path.suffix == &#34;.md&#34;:
+                        self.files.append(path)
+            except PermissionError:
+                pass
+
+    def create_structure(self, directory):
+        &#34;&#34;&#34;Reproduce project directory structure in set location.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory where converted files will be stored
+        &#34;&#34;&#34;
+        self.create_directory(self.path, directory)
+        for path in self.directories:
+            self.create_directory(path, directory)
+
+    def create_directory(self, path, destination):
+        &#34;&#34;&#34;Reproduce directory from set path in destination.
+
+        Parameters
+        ----------
+        path : pathlib.Path
+            directory which will be reproduced
+        destination : pathlib.Path
+            location where to reproduce directory
+        &#34;&#34;&#34;
+        path = destination / path.relative_to(self.path.parent)
+        path.mkdir(parents=True, exist_ok=True)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="pdoc3_mdnotes.mdnotes.Converter.collect"><code class="name flex">
+<span>def <span class="ident">collect</span></span>(<span>self, directory)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Collect all files from set directory.</p>
+<p>Iterate through files in set directory and place them in
+<code>self.directories</code> or <code>self.files</code>. When folder is met call self again
+with that path. In case of <code>PermissionError</code> skip that location.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>directory from which paths will be collected</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L98-L119" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def collect(self, directory):
+    &#34;&#34;&#34;Collect all files from set directory.
+
+    Iterate through files in set directory and place them in
+    `self.directories` or `self.files`. When folder is met call self again
+    with that path. In case of `PermissionError` skip that location.
+
+    Parameters
+    ----------
+    directory : pathlib.Path
+        directory from which paths will be collected
+    &#34;&#34;&#34;
+    for path in directory.iterdir():
+        try:
+            if path.is_dir():
+                self.directories.append(path)
+                self.collect(path)
+            else:
+                if path.suffix == &#34;.md&#34;:
+                    self.files.append(path)
+        except PermissionError:
+            pass</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.Converter.convert"><code class="name flex">
+<span>def <span class="ident">convert</span></span>(<span>self, directory)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Convert all collected files from <code>.md</code> to <code>.py</code>.</p>
+<p>If file name is <code>README.md</code> change it to <code>__init__.py</code>. Each file is
+saved to passed location preserving its relative path to project
+directory.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>path to directory where converted files will be stored</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L75-L96" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def convert(self, directory):
+    &#34;&#34;&#34;Convert all collected files from `.md` to `.py`.
+
+    If file name is `README.md` change it to `__init__.py`. Each file is
+    saved to passed location preserving its relative path to project
+    directory.
+
+    Parameters
+    ----------
+    directory : pathlib.Path
+        path to directory where converted files will be stored
+    &#34;&#34;&#34;
+    self.create_structure(directory)
+    for path in self.files:
+        if path.suffix == &#34;.md&#34;:
+            if path.stem.upper() == &#34;README&#34;:
+                name = &#34;__init__.py&#34;
+            else:
+                name = path.stem + &#34;.py&#34;
+            data = &#39;&#34;&#34;&#34;\n&#39; + load(path) + &#39;\n&#34;&#34;&#34;&#39;
+            path = directory / path.relative_to(self.path.parent).parent
+            save(path / name, data)</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.Converter.create_directory"><code class="name flex">
+<span>def <span class="ident">create_directory</span></span>(<span>self, path, destination)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Reproduce directory from set path in destination.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>directory which will be reproduced</dd>
+<dt><strong><code>destination</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>location where to reproduce directory</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L133-L144" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def create_directory(self, path, destination):
+    &#34;&#34;&#34;Reproduce directory from set path in destination.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        directory which will be reproduced
+    destination : pathlib.Path
+        location where to reproduce directory
+    &#34;&#34;&#34;
+    path = destination / path.relative_to(self.path.parent)
+    path.mkdir(parents=True, exist_ok=True)</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.Converter.create_structure"><code class="name flex">
+<span>def <span class="ident">create_structure</span></span>(<span>self, directory)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Reproduce project directory structure in set location.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>path to directory where converted files will be stored</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L121-L131" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def create_structure(self, directory):
+    &#34;&#34;&#34;Reproduce project directory structure in set location.
+
+    Parameters
+    ----------
+    directory : pathlib.Path
+        path to directory where converted files will be stored
+    &#34;&#34;&#34;
+    self.create_directory(self.path, directory)
+    for path in self.directories:
+        self.create_directory(path, directory)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.Notes"><code class="flex name class">
+<span>class <span class="ident">Notes</span></span>
+<span>(</span><span>path, destination, name='docs', templates=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Class interacting with <code>pdoc</code> to create <code>html</code> notes.</p>
+<p>&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>destination</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>path to project directory where folder from <code>self.name</code> will be created</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>name of directory where <code>html</code> files will be stored (default is "docs")</dd>
+<dt><strong><code>module</code></strong> :&ensp;<code>pdoc.Module</code></dt>
+<dd><code>pdoc</code> object representing module from which notes will be generated</dd>
+</dl>
+<p>Set notes templates. Initialize <code>pdoc</code> linker.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>path to directory containing <code>.py</code> files with notes</dd>
+<dt><strong><code>templates</code></strong> :&ensp;<code>pathlib.Path</code> or <code>None</code>, optional</dt>
+<dd>path to directory containing customized templates which will be
+used to create <code>html</code> notes (default is <code>None</code>)</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L147-L268" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">class Notes:
+    &#34;&#34;&#34;
+    Class interacting with `pdoc` to create `html` notes.
+
+    ...
+
+    Attributes
+    ----------
+    destination : pathlib.Path
+        path to project directory where folder from `self.name` will be created
+    name : str, optional
+        name of directory where `html` files will be stored (default is &#34;docs&#34;)
+    module : pdoc.Module
+        `pdoc` object representing module from which notes will be generated
+    &#34;&#34;&#34;
+
+    def __init__(self, path, destination, name=&#34;docs&#34;, templates=None):
+        &#34;&#34;&#34;Set notes templates. Initialize `pdoc` linker.
+
+        Parameters
+        ----------
+        path : pathlib.Path
+            path to directory containing `.py` files with notes
+        templates : pathlib.Path or None, optional
+            path to directory containing customized templates which will be
+            used to create `html` notes (default is `None`)
+        &#34;&#34;&#34;
+        self.destination = destination
+        self.name = name
+        self.set_templates(templates)
+
+        context = pdoc.Context()
+        source = str(path / destination.name)
+        self.module = pdoc.Module(source, context=context)
+        pdoc.link_inheritance(context)
+
+    def generate(self):
+        &#34;&#34;&#34;Create `html` notes in `self.destination`/`self.name` directory.&#34;&#34;&#34;
+        for path, content in self.get(self.module):
+            relative = &#34;/&#34;.join(Path(path).parts[1:])
+            path = self.destination / self.name / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            save(path, content)
+
+    def get(self, module):
+        &#34;&#34;&#34;Obtain `url` and `html` content from set module and its submodules.
+
+        Paramters
+        ---------
+        module : pdoc.Module
+            object from which `url` and `html` content will be obtained, can
+            contain submodules
+
+        Yields
+        ------
+        tuple
+            containing module `url` and its `html` content
+        &#34;&#34;&#34;
+        yield module.url(), module.html()
+        for submodule in module.submodules():
+            yield from self.get(submodule)
+
+    def set_templates(self, directory):
+        &#34;&#34;&#34;Set `pdoc` templates according to available options.
+
+        When passed path contains templates then they are used. If not folder
+        `templates` in `self.destination` is checked. If still nothing is
+        found templates from installation directory are taken. If it could not
+        find them anywhere it does not modify anything - templates provided
+        with `pdoc` are used.
+
+        Parameters
+        ----------
+        directory : pathlib.Path or None
+            path to directory containing templates, `None` when not specified
+        &#34;&#34;&#34;
+        destination = self.destination / &#34;templates&#34;
+        module_dir = getattr(sys, &#34;_MEIPASS&#34;, Path(__file__).parent.absolute())
+        module = Path(module_dir) / &#34;templates&#34;
+        for path in (directory, destination, module):
+            if self.change_templates(path):
+                break
+
+    def change_templates(self, path):
+        &#34;&#34;&#34;Change `pdoc` templates if set `path` contains all necessary files.
+
+        Parameters
+        ----------
+        path : pathlib.Path or None
+            path to directory containing templates, `None` when not specified
+
+        Returns
+        -------
+        bool
+            information if templates were changed or not
+        &#34;&#34;&#34;
+        if self.has_templates(path):
+            pdoc.tpl_lookup.directories = [str(path)]
+            return True
+        return False
+
+    @staticmethod
+    def has_templates(directory):
+        &#34;&#34;&#34;Check if templates files are stored in set `directory`.
+
+        Parameters
+        ----------
+        directory : pathlib.Path
+            path to directory which will be checked if templates are there
+
+        Returns
+        -------
+        bool
+            information if folder contains templates or not
+        &#34;&#34;&#34;
+        templates = (&#34;config&#34;, &#34;credits&#34;, &#34;css&#34;, &#34;head&#34;, &#34;html&#34;, &#34;logo&#34;)
+        try:
+            files = set(path.name for path in directory.iterdir())
+            expected = set(f&#34;{name}.mako&#34; for name in templates)
+            return not expected - files
+        except ACCESS_ERRORS:
+            return False</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="pdoc3_mdnotes.mdnotes.Notes.has_templates"><code class="name flex">
+<span>def <span class="ident">has_templates</span></span>(<span>directory)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Check if templates files are stored in set <code>directory</code>.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>pathlib.Path</code></dt>
+<dd>path to directory which will be checked if templates are there</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>information if folder contains templates or not</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L248-L268" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">@staticmethod
+def has_templates(directory):
+    &#34;&#34;&#34;Check if templates files are stored in set `directory`.
+
+    Parameters
+    ----------
+    directory : pathlib.Path
+        path to directory which will be checked if templates are there
+
+    Returns
+    -------
+    bool
+        information if folder contains templates or not
+    &#34;&#34;&#34;
+    templates = (&#34;config&#34;, &#34;credits&#34;, &#34;css&#34;, &#34;head&#34;, &#34;html&#34;, &#34;logo&#34;)
+    try:
+        files = set(path.name for path in directory.iterdir())
+        expected = set(f&#34;{name}.mako&#34; for name in templates)
+        return not expected - files
+    except ACCESS_ERRORS:
+        return False</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pdoc3_mdnotes.mdnotes.Notes.change_templates"><code class="name flex">
+<span>def <span class="ident">change_templates</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Change <code>pdoc</code> templates if set <code>path</code> contains all necessary files.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>pathlib.Path</code> or <code>None</code></dt>
+<dd>path to directory containing templates, <code>None</code> when not specified</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>information if templates were changed or not</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L230-L246" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def change_templates(self, path):
+    &#34;&#34;&#34;Change `pdoc` templates if set `path` contains all necessary files.
+
+    Parameters
+    ----------
+    path : pathlib.Path or None
+        path to directory containing templates, `None` when not specified
+
+    Returns
+    -------
+    bool
+        information if templates were changed or not
+    &#34;&#34;&#34;
+    if self.has_templates(path):
+        pdoc.tpl_lookup.directories = [str(path)]
+        return True
+    return False</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.Notes.generate"><code class="name flex">
+<span>def <span class="ident">generate</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Create <code>html</code> notes in <code>self.destination</code>/<code>self.name</code> directory.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L183-L189" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def generate(self):
+    &#34;&#34;&#34;Create `html` notes in `self.destination`/`self.name` directory.&#34;&#34;&#34;
+    for path, content in self.get(self.module):
+        relative = &#34;/&#34;.join(Path(path).parts[1:])
+        path = self.destination / self.name / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        save(path, content)</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.Notes.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, module)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Obtain <code>url</code> and <code>html</code> content from set module and its submodules.</p>
+<h2 id="paramters">Paramters</h2>
+<dl>
+<dt><strong><code>module</code></strong> :&ensp;<code>pdoc.Module</code></dt>
+<dd>object from which <code>url</code> and <code>html</code> content will be obtained, can
+contain submodules</dd>
+</dl>
+<h2 id="yields">Yields</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>containing module <code>url</code> and its <code>html</code> content</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L191-L207" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def get(self, module):
+    &#34;&#34;&#34;Obtain `url` and `html` content from set module and its submodules.
+
+    Paramters
+    ---------
+    module : pdoc.Module
+        object from which `url` and `html` content will be obtained, can
+        contain submodules
+
+    Yields
+    ------
+    tuple
+        containing module `url` and its `html` content
+    &#34;&#34;&#34;
+    yield module.url(), module.html()
+    for submodule in module.submodules():
+        yield from self.get(submodule)</code></pre>
+</details>
+</dd>
+<dt id="pdoc3_mdnotes.mdnotes.Notes.set_templates"><code class="name flex">
+<span>def <span class="ident">set_templates</span></span>(<span>self, directory)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Set <code>pdoc</code> templates according to available options.</p>
+<p>When passed path contains templates then they are used. If not folder
+<code>templates</code> in <code>self.destination</code> is checked. If still nothing is
+found templates from installation directory are taken. If it could not
+find them anywhere it does not modify anything - templates provided
+with <code>pdoc</code> are used.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>pathlib.Path</code> or <code>None</code></dt>
+<dd>path to directory containing templates, <code>None</code> when not specified</dd>
+</dl></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/mdnotes.py#L209-L228" class="git-link">Browse git</a>
+</summary>
+<pre><code class="python">def set_templates(self, directory):
+    &#34;&#34;&#34;Set `pdoc` templates according to available options.
+
+    When passed path contains templates then they are used. If not folder
+    `templates` in `self.destination` is checked. If still nothing is
+    found templates from installation directory are taken. If it could not
+    find them anywhere it does not modify anything - templates provided
+    with `pdoc` are used.
+
+    Parameters
+    ----------
+    directory : pathlib.Path or None
+        path to directory containing templates, `None` when not specified
+    &#34;&#34;&#34;
+    destination = self.destination / &#34;templates&#34;
+    module_dir = getattr(sys, &#34;_MEIPASS&#34;, Path(__file__).parent.absolute())
+    module = Path(module_dir) / &#34;templates&#34;
+    for path in (directory, destination, module):
+        if self.change_templates(path):
+            break</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<header><img src="https://raw.githubusercontent.com/ethru/pdoc3-mdnotes/develop/pdoc3_mdnotes/icons/mdnotes.png" alt=""></header>
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#mdnotes">mdnotes</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pdoc3_mdnotes" href="index.html">pdoc3_mdnotes</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pdoc3_mdnotes.mdnotes.load" href="#pdoc3_mdnotes.mdnotes.load">load</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.main" href="#pdoc3_mdnotes.mdnotes.main">main</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.save" href="#pdoc3_mdnotes.mdnotes.save">save</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pdoc3_mdnotes.mdnotes.Converter" href="#pdoc3_mdnotes.mdnotes.Converter">Converter</a></code></h4>
+<ul class="">
+<li><code><a title="pdoc3_mdnotes.mdnotes.Converter.collect" href="#pdoc3_mdnotes.mdnotes.Converter.collect">collect</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.Converter.convert" href="#pdoc3_mdnotes.mdnotes.Converter.convert">convert</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.Converter.create_directory" href="#pdoc3_mdnotes.mdnotes.Converter.create_directory">create_directory</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.Converter.create_structure" href="#pdoc3_mdnotes.mdnotes.Converter.create_structure">create_structure</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pdoc3_mdnotes.mdnotes.Notes" href="#pdoc3_mdnotes.mdnotes.Notes">Notes</a></code></h4>
+<ul class="">
+<li><code><a title="pdoc3_mdnotes.mdnotes.Notes.change_templates" href="#pdoc3_mdnotes.mdnotes.Notes.change_templates">change_templates</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.Notes.generate" href="#pdoc3_mdnotes.mdnotes.Notes.generate">generate</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.Notes.get" href="#pdoc3_mdnotes.mdnotes.Notes.get">get</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.Notes.has_templates" href="#pdoc3_mdnotes.mdnotes.Notes.has_templates">has_templates</a></code></li>
+<li><code><a title="pdoc3_mdnotes.mdnotes.Notes.set_templates" href="#pdoc3_mdnotes.mdnotes.Notes.set_templates">set_templates</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
