@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML'></script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">
+<code>Fixtures</code></h1>
+</header>
+<section id="section-intro">
+<h3 id="documentation"><a href="https://docs.pytest.org/en/latest/fixture.html">Documentation</a></h3>
+<p>Fixtures can be treated as functions which are defined in one place and are available across test files (with no need
+of import). Collect them in <code>conftest.py</code> file situated in folder with tests. From this directory (and all his
+subdirectories) every test will get access to fixtures defined there. To overwrite previously created fixture new
+<code>conftest.py</code> can be created in subdirectory with fixture named the same.</p>
+<h3 id="usage">Usage</h3>
+<p>In <code>conftest.py</code> place:</p>
+<pre><code class="python">from pytest import fixture
+from time import sleep
+
+from selenium import webdriver
+
+@fixture
+def browser():
+    driver = webdriver.Firefox()
+    yield driver
+    sleep(5)
+    driver.quit()
+
+@fixture(scope='session')
+def homepage(browser):
+    return browser.get('https://github.com/')
+</code></pre>
+<p>In above example there are two fixtures defined. First one yields browser object. Note that <code>yield</code> is used instead of
+<code>return</code>. It allows to write code executed after work in this case with browser is done. Second uses previously defined
+browser fixture to open homepage. Take a look how it is done. Homepage function is also fixture, so decorator <code>@fixture</code>
+is used as in previous example. Parameter which it takes is name of <code>browser</code> function. Now calling any method on
+<code>browser</code> will be equal to calling it on <code>driver</code> (<code>webriver.Firefox()</code>).</p>
+<p>Let's explain what will happen
+now if in other file (e.g. <code>test_me.py</code>) in same directory as <code>conftest.py</code> somebody will use <code>homepage</code>. First of all
+<code>driver</code> for Firefox will be created. By <code>yield</code> it will go to homepage fixture where method
+<code>get('https://github.com/')</code> is called. It opens Firefox and displays <code>GitHub</code> website. Then teardown from browser
+function is executed: <code>sleep(5)</code> and <code>driver.quit()</code>. After 5 seconds Firefox is closed.</p>
+<p><a href="https://github.com/ethru/pdoc3-mdnotes/blob/master/example/test/code/conftest.py">See example on GitHub.</a></p>
+<h3 id="scope">Scope</h3>
+<p>It allows to specify whether we are calling the same object or new one. Object can be created as one existing for whole
+test session. Then each call (doesn't matter from which function, class or file) will apply to the same (once created)
+object. It allows to share state between tests. On the other hand we can set scope to <code>function</code> which means that for
+each function new object will be created. Several operations can be made on this object within one function, but after
+going to the next one we will get new, fresh object (no affected by our previous manipulations). Available scopes:</p>
+<ul>
+<li><code>session</code> : one (the same) object for whole test session</li>
+<li><code>package</code> : one (the same) object for each package</li>
+<li><code>module</code> : one (the same) object for each module</li>
+<li><code>class</code> : one (the same) object for each class</li>
+<li><code>function</code> : one (the same) object for each function or method</li>
+</ul>
+<h3 id="parametrize">Parametrize</h3>
+<pre><code class="python">from pytest import fixture
+from selenium import webdriver
+
+@fixture(params=[webdriver.Chrome, webdriver.Firefox, webdriver.Edge])
+def browser(request):
+    driver = request.param()
+    yield driver
+    driver.quit()
+</code></pre>
+<p>Parameters are added as list to <code>params</code> of <code>@fixture</code>. To use them we pass <code>request</code> (keyword, predefined in <code>pytest</code>)
+to our fixture (in this case called browser). Access to each parameter is gained by <code>request.param</code> as on example above.</p>
+<h4 id="example"><a href="https://docs.pytest.org/en/latest/example/parametrize.html">Example</a></h4>
+</section>
+</article>
+<nav id="sidebar">
+<h3>Fixtures</h3>
+<div class="toc">
+<ul>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#parametrize">Parametrize</a><ul>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Previous page:</h3>
+<ul>
+<li><code><a title="example.test" href="index.html">Test</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>
+with extension <a href="https://ethru.github.io/pdoc3-mdnotes"><cite>mdnotes</cite></a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

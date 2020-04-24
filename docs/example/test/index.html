@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_CHTML'></script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">
+<code>Test</code></h1>
+</header>
+<section id="section-intro">
+<h3 id="documentation"><a href="https://docs.pytest.org/en/latest/contents.html">Documentation</a></h3>
+<ul>
+<li><a href="https://docs.pytest.org/en/latest/reference.html">API Reference</a></li>
+<li><a href="https://docs.pytest.org/en/latest/usage.html">Usage</a></li>
+<li><a href="https://docs.pytest.org/en/latest/example/index.html">Examples</a></li>
+<li><a href="https://docs.pytest.org/en/latest/talks.html">Tutorials</a></li>
+</ul>
+<h3 id="building-tests-structure"><a href="https://pytest.readthedocs.io/en/reorganize-docs/new-docs/user/directory_structure.html">Building tests structure</a></h3>
+<ul>
+<li>tests mixed with code inside project directory</li>
+<li>tests placed outside of project in <code>tests</code> directory</li>
+</ul>
+<p><a href="https://docs.pytest.org/en/latest/goodpractices.html">Read more</a></p>
+<h4 id="example-tests-structure">Example tests structure</h4>
+<pre><code>setup.py
+src/
+    mypkg/
+        __init__.py
+        app.py
+        view.py
+tests/
+    __init__.py
+    foo/
+        __init__.py
+        test_view.py
+    bar/
+        __init__.py
+        test_view.py
+</code></pre>
+<h4 id="examples-in-projects"><a href="https://docs.pytest.org/en/latest/projects.html">Examples in projects</a></h4>
+<ul>
+<li><a href="https://github.com/circuits/circuits/tree/master/tests">circuits</a></li>
+<li><a href="https://github.com/getsentry/sentry/tree/master/tests">sentry</a></li>
+<li><a href="https://github.com/tox-dev/tox/tree/master/tests">tox</a></li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>To run tests just write <code>pytest</code> in terminal inside <code>tests</code> directory, but note:</p>
+<ul>
+<li>names of files <code>test_*</code>, classes <code>Test*</code>, functions and methods <code>test_*</code> should correspond to highlighted convention -
+it can be changed in file called
+<a href="https://docs.pytest.org/en/latest/example/pythoncollection.html#changing-naming-conventions">pytest.ini</a></li>
+<li><code>ImportError</code> can be displayed which means no access to project source directory, avoid it by:<ul>
+<li>
+<h4 id="python-m-pytest-tests"><code>python -m pytest tests</code></h4>
+<ul>
+<li>call it from project directory (tests will get access to <code>src</code> directory)</li>
+</ul>
+</li>
+<li>
+<h4 id="pip-install-e"><code>pip install -e .</code></h4>
+<ul>
+<li>with <code>setup.py</code> file project can be installed in <code>--extended</code> mode. It means that its files will be linked.
+Making any change inside them will reflect in each reference to project. No reinstallation needed.</li>
+</ul>
+</li>
+<li>
+<h4 id="tox"><a href="https://tox.readthedocs.io/en/latest/">tox</a></h4>
+<ul>
+<li>tool to run tests in virtual environment (recommended)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="flags">Flags</h4>
+<p>Several examples:</p>
+<ul>
+<li><code>-h</code> : help</li>
+<li><code>-v</code> : display more details</li>
+<li><code>-s</code> : display prints used in tests</li>
+<li><code>--markers</code> : show available markers</li>
+<li><code>--fixtures</code> : show available fixtures</li>
+<li><code>-rs</code> : display description from skip markers during test run</li>
+<li><code>-rx</code> : display description from xfail markers during test run</li>
+</ul>
+<h3 id="configuration">Configuration</h3>
+<p>In <code>tests</code> directory place <code>pytest.ini</code> file (or add below options to <code>tox.ini</code>):</p>
+<pre><code class="ini">[pytest]
+python_files = check_*
+python_classes = *Check
+python_functions = *_check
+
+addopts = -v
+testpaths = tests
+markers = 
+    smoke : All critical tests
+    database : All database tests
+    gui : All GUI tests
+</code></pre>
+<ul>
+<li><code>python_files</code>, <code>_classes</code>, <code>_functions</code> - allow to edit default name of tests files <code>test_*</code>, classes <code>Test*</code>,
+methods and functions <code>test_*</code></li>
+<li><code>addopts</code> allows to add <a href="https://docs.pytest.org/en/latest/customize.html#builtin-configuration-file-options">predefined flags
+</a> to each <code>pytest</code> call. This
+means that in example above instead normal <code>pytest</code> output <code>pytest -v</code> will be displayed.</li>
+<li><code>testpaths</code> specifies tests directory, when unset all folders will checked</li>
+<li><code><a title="example.test.markers" href="markers.html">example.test.markers</a></code> - contains description of custom markers used in tests. Allows new user to display them by <code>pytest
+--markers</code></li>
+</ul>
+<p><a href="https://github.com/ethru/pdoc3-mdnotes/blob/master/example/test/code/pytest.ini">See example on GitHub.</a></p>
+<h4 id="use-of-conftestpy-and-fixtures">Use of conftest.py and fixtures</h4>
+<p>Each test placed in same or subdirectory gets access to functions defined in file <code>conftest.py</code> and marked as
+<code>@fixture</code>. They can be overwritten by creating new <code>conftest.py</code> in any subdirectory and making fixture with the same
+name. More information in fixtures tab.
+</p>
+<h4 id="configuration-options"><a href="https://docs.pytest.org/en/latest/reference.html#configuration-options">Configuration options</a></h4>
+<h3 id="reports">Reports</h3>
+<p>Reports can be generated from tests runs. Depending on needs proper format can be preferred:</p>
+<ul>
+<li>
+<h4 id="html">html</h4>
+<ul>
+<li>readable for user</li>
+<li>use <code>pytest-html</code> extension described below</li>
+<li>create report: <code>pytest-html --html="results.html"</code></li>
+</ul>
+</li>
+<li>
+<h4 id="xml">xml</h4>
+<ul>
+<li>integration with CI (Jenkins for example)</li>
+<li>create report: <code>pytest --junitxml="results.xml"</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="extensions">Extensions</h3>
+<ul>
+<li>
+<h4 id="pytest-xdist"><a href="https://github.com/pytest-dev/pytest-xdist">pytest-xdist</a></h4>
+<ul>
+<li>allows to run tests parallel</li>
+<li>installation: <code>pip install pytest-xdist</code></li>
+<li>usage: <code>pytest -n4</code> where <code>n</code> means number of used threads. Flag <code>-nauto</code> for automatic configuration.</li>
+</ul>
+</li>
+<li>
+<h4 id="pytest-socket"><a href="https://github.com/miketheman/pytest-socket">pytest-socket</a></h4>
+<ul>
+<li>allows to disable socket during tests run</li>
+<li>installation: <code>pip install pytest-socket</code></li>
+<li>usage: <code>from pytest_socket import disable_socket</code></li>
+</ul>
+</li>
+<li>
+<h4 id="pytest-html"><a href="https://github.com/pytest-dev/pytest-html">pytest-html</a></h4>
+<ul>
+<li>generates <code>html</code> reports from tests run</li>
+<li>installation: <code>pip install pytest-html</code></li>
+<li>usage: <code>pytest-html --html="results.html"</code></li>
+</ul>
+</li>
+<li>
+<h4 id="pytest-cov"><a href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a></h4>
+<ul>
+<li>checks tests coverage</li>
+<li>installation: <code>pip install pytest-cov</code></li>
+<li>usage: <code>pytest --cov=project tests/</code></li>
+</ul>
+</li>
+</ul>
+</section>
+</article>
+<nav id="sidebar">
+<h3>Test</h3>
+<div class="toc">
+<ul>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#building-tests-structure">Building tests structure</a><ul>
+<li><a href="#example-tests-structure">Example tests structure</a></li>
+<li><a href="#examples-in-projects">Examples in projects</a></li>
+</ul>
+</li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#python-m-pytest-tests">python -m pytest tests</a></li>
+<li><a href="#pip-install-e">pip install -e .</a></li>
+<li><a href="#tox">tox</a></li>
+<li><a href="#flags">Flags</a></li>
+</ul>
+</li>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#use-of-conftestpy-and-fixtures">Use of conftest.py and fixtures</a></li>
+<li><a href="#configuration-options">Configuration options</a></li>
+</ul>
+</li>
+<li><a href="#reports">Reports</a><ul>
+<li><a href="#html">html</a></li>
+<li><a href="#xml">xml</a></li>
+</ul>
+</li>
+<li><a href="#extensions">Extensions</a><ul>
+<li><a href="#pytest-xdist">pytest-xdist</a></li>
+<li><a href="#pytest-socket">pytest-socket</a></li>
+<li><a href="#pytest-html">pytest-html</a></li>
+<li><a href="#pytest-cov">pytest-cov</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Previous page:</h3>
+<ul>
+<li><code><a title="example" href="../index.html">Example</a></code></li>
+</ul>
+</li>
+<li><h3>Next pages:</h3>
+<ul>
+<li><code><a title="example.test.fixtures" href="fixtures.html">Fixtures</a></code></li>
+<li><code><a title="example.test.markers" href="markers.html">Markers</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>
+with extension <a href="https://ethru.github.io/pdoc3-mdnotes"><cite>mdnotes</cite></a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
