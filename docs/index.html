@@ -21,18 +21,130 @@
 </header>
 <section id="section-intro">
 <h1 id="pdoc3-mdnotes">pdoc3-mdnotes</h1>
+<p>Simplicity is a key. Don't you agree? What would you say to bring your notes online in few easy steps and allow other
+team members to develop them? This can lead to deploying good tutorial for coworkers or building website for university
+project. Spectrum is wide, you decide how to use it!</p>
+<p>Idea behind this project is to combine <a href="https://www.markdownguide.org/">Markdown</a>, <a href="https://pdoc3.github.io/">pdoc3</a> and
+<a href="https://pages.github.com/">GitHub Pages</a> to upload your notes as website without much effort. Markdown is cool, isn't
+it? You can simply create such a file in any notepad. Place headings, links, images and all needed stuff there. To build
+notebook just make few <code>.md</code> files and divide them into different directories based on notes topic. As on example <a href="https://github.com/ethru/pdoc3-mdnotes/tree/master/example/">here
+</a>.</p>
+<p>Next step is conversion to <code>.html</code> and linking notes with each other. Here comes <code>pdoc3-mdnotes</code> with help. It bases on
+fantastic documentation tool <a href="https://pdoc3.github.io/pdoc/doc/pdoc/">pdoc3</a>. Just take a look at its website. Isn't
+that form of keeping your information clean and readable? I think it is! With few modifications which this extension
+makes your notes can look the same. Just check example from previous paragraph converted to <a href="https://ethru.github.io/pdoc3-mdnotes/example/">website
+</a>.</p>
+<p>Finally you can upload your work to <a href="https://pages.github.com/">GitHub Pages</a> and share it with others. It's a great way
+to open your notes as normal website every time you need them. It also allows other people to contribute and develop
+your project.</p>
+<p><em><strong>Note:</strong> purpose of this project is to create simple static website from <code>.md</code> files with no prior configuration
+needed. You can of course experiment with templates, but for more complex ideas take a look at <a href="https://jekyllrb.com/">Jekyll
+</a>.</em></p>
+<h2 id="installation">Installation</h2>
+<pre><code>$ git clone &lt;https://github.com/ethru/pdoc3-mdnotes.git&gt;
+$ pip install pdoc3-mdnotes/.
+</code></pre>
+<p><em><strong>Linux note:</strong> default installer behaviour is to create desktop entry for application. If you are going use it as
+script and don't need that entry. Please change <code>'linux'</code> to <code>None</code> in line <code>if platform == 'linux':</code> of <code>setup.py</code>
+file.</em></p>
+<h2 id="build">Build</h2>
+<p>To build application <a href="http://www.pyinstaller.org/">PyInstaller</a> is needed. Get it with: <code>$ pip install pyinstaller</code> .</p>
+<pre><code>$ git clone &lt;https://github.com/ethru/pdoc3-mdnotes.git&gt;
+$ cd pdoc3-mdnotes
+$ pip install -r requirements.txt
+$ python build.py
+</code></pre>
+<p>GUI version of application is built. Executable is located in <code>dist</code> directory.</p>
+<h2 id="preparation">Preparation</h2>
+<ul>
+<li>create base directory for your project, e.g. <code>Notes</code></li>
+<li>separate different topics inside new directories<ul>
+<li>each directory name will be website heading</li>
+<li>e.g. <code>examples_to_check</code> directory will transform into <code>Examples to check</code> heading</li>
+</ul>
+</li>
+<li>add <code>README.md</code> for each directory<ul>
+<li>it will be treated as <code>index.html</code></li>
+<li>this means: content displayed below heading (directory name)</li>
+</ul>
+</li>
+<li>place as many <code>.md</code> files as your project needs<ul>
+<li>they will be linked as subpages for their directory</li>
+<li>this means: grouped under one topic</li>
+</ul>
+</li>
+<li>you can mix your notes with other files<ul>
+<li>their directories will be ignored unless you will place <code>.md</code> file there</li>
+<li>e.g. <code>code</code> directory containing only <code>test_markers.py</code> file won't be linked<ul>
+<li>but you can manually place link pointing this file inside your notes</li>
+<li>e.g. <a href="https://github.com/ethru/pdoc3-mdnotes/blob/master/example/test/code/test_markers.py">https://github.com/ethru/pdoc3-mdnotes/blob/master/example/test/code/test_markers.py</a> as <a href="https://github.com/ethru/pdoc3-mdnotes/blob/master/example/test/code/test_markers.py">see me
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Just take a look at notebook structure enclosed <a href="https://github.com/ethru/pdoc3-mdnotes/tree/master/example">here</a>.
+It will generate following <a href="https://ethru.github.io/pdoc3-mdnotes/example/">output</a>.</p>
+<h2 id="usage">Usage</h2>
+<ul>
+<li><strong>as standalone script</strong><ul>
+<li>copy <code>mdnotes.py</code> from <code>pdoc3_mdnotes</code> directory and paste it inside a folder with your notes</li>
+<li><em>optional:</em> add <code>templates</code> directory with customized to your project templates</li>
+<li>launch script from terminal: <code>$ python mdnotes.py</code><ul>
+<li><em>optional:</em> add execute permission <code>$ chmod +x mdnotes.py</code> and run <code>$ ./mdnotes.py</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>as command line application</strong><ul>
+<li>from terminal use one of following: <code>$ mdnotes</code>, <code>$ pdoc3-mdnotes</code>, <code>$ pdoc3_mdnotes</code>, <code>$ python -m pdoc3_mdnotes</code>
+to run program in current working directory</li>
+<li>optional arguments:<ul>
+<li><code>-h</code>, <code>--help</code> : to display help</li>
+<li><code>-g</code>, <code>--gui</code> : to launch simple GUI</li>
+<li><code>-n NAME</code>, <code>--name NAME</code> : name of directory where <code>html</code> notes will be saved, default is: <code>docs</code>. Path can be
+used as well. Relative will navigate from project directory (specified by <code>-p</code>, <code>--path</code>)</li>
+<li><code>-p PATH</code>, <code>--path PATH</code> : path to directory containing notes (<code>.md</code> files), when not specified path where
+program is run will be used</li>
+<li><code>-t TEMPLATES</code>, <code>--templates TEMPLATES</code> : path to directory with templates, when not specified directory
+<code>templates</code> in path where program is run will be used if it exists else default templates are processed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>as GUI application</strong><ul>
+<li>write down absolute path to notes in application entry or use browse button</li>
+<li>press <code>Create</code> to generate <code>html</code> notes in <code>docs</code> directory inside written down path</li>
+<li>success or error notification will be displayed</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Menu" src="https://raw.githubusercontent.com/ethru/pdoc3-mdnotes/master/data/menu.png"></p>
 <h2 id="project-information">Project Information</h2>
-<h5 id="license">License:</h5>
+<h5 id="documentation">Documentation</h5>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc/">pdoc3</a> and included in
+<a href="https://github.com/ethru/pdoc3-mdnotes/tree/master/docs">docs</a> directory. Open it
+<a href="https://ethru.github.io/pdoc3-mdnotes/">here</a>.</p>
+<h5 id="requirements">Requirements</h5>
+<ul>
+<li>Python3.6+</li>
+<li>Check <a href="https://raw.githubusercontent.com/ethru/pdoc3-mdnotes/master/requirements.txt">requirements.txt</a> file to see
+used modules.</li>
+</ul>
+<h5 id="author">Author</h5>
+<p>Adrian Niec</p>
+<h5 id="license">License</h5>
 <p>This project is under the MIT License with exclusion of code interacting with <a href="https://pdoc3.github.io/pdoc/">pdoc</a>
 which is licensed as <a href="https://raw.githubusercontent.com/pdoc3/pdoc/master/LICENSE.txt">GNU AGPL-3.0+</a>.</p>
 <p><em><strong>Note:</strong> this extension does not modify <a href="https://pdoc3.github.io/pdoc/">pdoc</a> installation. It is separate module
 which uses elements provided by <a href="https://pdoc3.github.io/pdoc/doc/pdoc/#programmatic-usage">pdoc</a> to generate html
-notebook from markdown files. For this purpose original templates were downloaded and adjusted from
-<a href="https://github.com/pdoc3/pdoc/tree/master/pdoc/templates">source</a>.</em></p>
+notebook from markdown files. For this purpose original templates were downloaded and adjusted from <a href="https://github.com/pdoc3/pdoc/tree/master/pdoc/templates">source
+</a>.</em></p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
-<a href="https://github.com/ethru/pdoc3-mdnotes/blob/5ab3c826a1f4d642579202f39b767b13c2f44957/pdoc3_mdnotes/__init__.py#L0-L2" class="git-link">Browse git</a>
+<a href="https://github.com/ethru/pdoc3-mdnotes/blob/45be6f989a1827bbaf843a26f9592bbb45122f5c/pdoc3_mdnotes/__init__.py#L0-L2" class="git-link">Browse git</a>
 </summary>
 <pre><code class="python">&#34;&#34;&#34;.. include:: ../README.md&#34;&#34;&#34;
 
@@ -52,8 +164,15 @@ __version__ = &#39;2020.4.9&#39;</code></pre>
 <div class="toc">
 <ul>
 <li><a href="#pdoc3-mdnotes">pdoc3-mdnotes</a><ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#build">Build</a></li>
+<li><a href="#preparation">Preparation</a></li>
+<li><a href="#usage">Usage</a></li>
 <li><a href="#project-information">Project Information</a><ul>
-<li><a href="#license">License:</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#author">Author</a></li>
+<li><a href="#license">License</a></li>
 </ul>
 </li>
 </ul>
